@@ -1,0 +1,46 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+<body>
+    <h1 style="text-align:center"><b>Produtos</b></h1>
+   <p></p>
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="." method="GET" class="form-inline">
+                <input type="text" id="search" name="search" class="form-control" placeholder="Buscar produto" />
+                <input type="submit" class="btn btn-primary" value="Buscar" style="margin-left:10px"/>
+            </form>
+        </div>
+    </div>
+    <div>
+    <table class="table table-light" border="1">
+        <thead>
+            <tr class="table-primary">
+                <th>Codigo De Barras</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preco</th>
+                <th>Quantidade</th>
+                <th><div class="row" style="text-align:center ">Opções</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr class="table-light">
+                <td>{{ produto.codigo_barras }}</td>
+                <td>{{ produto.nome }}</td>
+                <td>{{ produto.descricao }}</td>
+                <td>{{ produto.preco }}</td>
+                <td>{{ produto.quantidade }}</td>
+                <td>
+                    <div class="row" style="text-align:center ">
+                        <a href="{% url 'produto_update' produto.codigo_barras %}" class="btn btn-primary" > Atualizar </a>
+                        <a href="{% url 'produto_delete' produto.codigo_barras %}" class="btn btn-danger" > Excluir </a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</body>
+{% endblock %}

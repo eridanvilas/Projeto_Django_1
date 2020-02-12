@@ -1,0 +1,30 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+<body>
+    <div>
+        <table class="table table-light" border="1">
+            <thead>
+                <tr class="table-primary">
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>quantidade</th>
+                    <th>preco</th>
+                    <th>produtos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cesta in cestas %}
+                <tr class="table-active">
+                    <td>{{ cesta.id }}</td>
+                    <td>{{ cesta.nome }}</td>
+                    <td>{{ cesta.quantidade }}</td>
+                    <td>{{ cesta.preco }}</td>
+                    <td>{{ cesta.produtos }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock %}

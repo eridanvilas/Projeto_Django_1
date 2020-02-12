@@ -1,0 +1,7 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+<form>
+    <h1>Deseja realmente deletar o produto " {{ object.title}} " ?</h1>{% csrf_token %}
+    <p><input type="submit"  value="Sim"/> <a href='../'>Cancelar</a></p>
+</form>
+{% endblock %}

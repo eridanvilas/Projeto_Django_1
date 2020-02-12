@@ -1,0 +1,19 @@
+version: '3'
+volumes:
+    dados:
+services: 
+    db:
+        image: postgres:10
+        volumes: 
+            - dados:/var/lib/postgresql/data
+            - ./scripts:/scripts
+            - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    web:
+        build: cestabasica
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes: 
+            - ./cestabasica:/cestabasica
+        ports:
+            - "8000:8000"
+        depends_on:
+            - db

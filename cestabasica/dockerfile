@@ -1,0 +1,10 @@
+FROM python:3.6.6
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /cestabasica
+WORKDIR /cestabasica
+COPY requirements.txt /cestabasica/
+RUN pip install -r requirements.txt
+COPY entrypoint.sh /cestabasica/
+RUN chmod +x entrypoint.sh
+
+COPY . /code/

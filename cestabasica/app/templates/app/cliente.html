@@ -1,0 +1,44 @@
+﻿{% extends "app/layout.html" %}
+{% block content %}
+<body>
+    <h1 style="text-align:center"><b>Clientes</b></h1>
+    <p></p>
+      <div class="row">
+        <div class="col-sm-6">
+            <form action="." method="GET" class="form-inline">
+                <input type="text" id="search" name="search" class="form-control" placeholder="Buscar cliente" />
+                <input type="submit" class="btn btn-primary" value="Buscar" style="margin-left:10px"/>
+            </form>
+        </div>
+    </div>
+    <div>
+        <table class="table table-light" border="1">
+            <thead>
+                <tr class="table-primary">
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                <tr class="table-active">
+                    <td>{{ cliente.cpf }}</td>
+                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.email }}</td>
+                    <td>{{ cliente.telefone }}</td>
+                    <td>
+                        <div>
+                             <a href="{% url 'cliente_update' cliente.cpf %}" class="btn btn-primary"> Atualizar </a>
+                             <a href="{% url 'cliente_delete' cliente.cpf %}" class="btn btn-danger"> Excluir </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock %}

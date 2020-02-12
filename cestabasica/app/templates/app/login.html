@@ -1,0 +1,49 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            <form action="." method="post" class="form-horizontal">
+                {% csrf_token %}
+                <h2>Entre com seu usuario para acessar o sistema</h2>
+                <hr />
+                <div class="form-group">
+                    <label for="id_username" class="col-md-2 control-label">Usuario</label>
+                    <div class="col-md-10">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="id_password" class="col-md-2 control-label">Senha</label>
+                    <div class="col-md-10">
+                        {{ form.password }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="next" value="/" />
+                        <input type="submit" value="Entrar" class="btn btn-default" />
+                    </div>
+                </div>
+                {% if form.errors %}
+                <p class="validation-summary-errors">Por Favor entre com usuario/senha correta</p>
+                {% endif %}
+            </form>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm"></section>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load staticfiles %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}
