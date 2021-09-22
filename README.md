@@ -1,5 +1,5 @@
 # Projeto_CestaBasica_Django
-Projeto da faculdade da aula de laboratório de software.
+Projeto da faculdade para aula de laboratório de software.
 Foi utilizando Django 3 e PostgreSql como banco e atualmente foi atualizado para subir tanto o banco como a aplicação Django com o Docker.
 
 
