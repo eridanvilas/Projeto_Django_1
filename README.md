@@ -1,4 +1,4 @@
-# Projeto_Django
+# Projeto_CestaBasica_Django
 Projeto da faculdade da aula de laboratório de software, Utilizando Django 3 e PostgreSql como banco. Foi atualizado para subir tanto o banco como a aplicação Django com o docker
 
 ![image](https://user-images.githubusercontent.com/56171753/134276596-9f564f1a-cccd-494c-b2ae-c0ad8c9af1ee.png)
