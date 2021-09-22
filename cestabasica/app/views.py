@@ -27,7 +27,7 @@ def lista_cliente(request):
     clientes = Cliente.objects.all()
     search = request.GET.get('search')
     if search:
-        clientes = objects.filter(nome__icontains=search)
+        clientes = Cliente.objects.filter(nome__icontains=search)
     contexto = {'clientes': clientes}
     return render(request, "app/cliente.html", contexto)
 
@@ -110,7 +110,7 @@ def produto_update(request, codigo_barras):
 
         if form.is_valid():
             produto.save()
-            return redirect('/produto')
+            return redirect('/produto/')
         else:
             return render(request, 'app/criarproduto.html', {'form': form, 'produto': produto})
     else:
@@ -136,7 +136,9 @@ def cesta_form(request):
 
 @login_required(login_url='/login')
 def lista_cesta(request):
-    cestas = Cesta.objects.all()
-    contexto = {'cestas': cestas
+    cestas = Cesta.objects.all();
+
+    contexto = {
+                'cestas': cestas
                }
     return render(request, "app/cestas.html", contexto)

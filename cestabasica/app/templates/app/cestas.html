@@ -1,16 +1,19 @@
 ﻿{% extends "app/layout.html" %}
 
 {% block content %}
+
 <body>
+    <h1 style="text-align:center"><b>Lista de Cestas</b></h1>
+    <p></p>
     <div>
         <table class="table table-light" border="1">
             <thead>
                 <tr class="table-primary">
-                    <th>id</th>
+                    <th>Id</th>
                     <th>Nome</th>
-                    <th>quantidade</th>
-                    <th>preco</th>
-                    <th>produtos</th>
+                    <th>Quantidade</th>
+                    <th>Preco</th>
+                    <th>Produtos</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,7 +23,11 @@
                     <td>{{ cesta.nome }}</td>
                     <td>{{ cesta.quantidade }}</td>
                     <td>{{ cesta.preco }}</td>
-                    <td>{{ cesta.produtos }}</td>
+                    <td>
+                        {% for produto in cesta.produtos.all %}
+                        <p>{{ produto}}</p>
+                        {% endfor %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

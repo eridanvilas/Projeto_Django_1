@@ -1,10 +1,17 @@
 ﻿{% extends "app/layout.html" %}
 {% block content %}
+<h1 style="text-align:center"><b>Cadastrar Produto</b></h1>
+<p></p>
+<div>
     <form action="" method="post" autocomplete="off">
-        {% csrf_token %}
-       <div class="container">
-        {{ form.as_p }}
-        </div>
-       <button class="btn btn-success" type="submit">Cadastrar</button>
+        <table>
+            {% csrf_token %}
+            {{ form.as_p }}
+        </table>
+        <tr colspan=2>
+            <button class="btn btn-success" type="submit">Cadastrar</button>
+        </tr>
     </form>
+</div>
+
 {% endblock %}

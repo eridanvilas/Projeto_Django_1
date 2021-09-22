@@ -4,7 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 from .models import Cliente, Produto, Cesta
 
 class BootstrapAuthenticationForm(AuthenticationForm):
-    """Authentication form which uses boostrap CSS."""
     username = forms.CharField(max_length=254,
                                widget=forms.TextInput({
                                    'class': 'form-control',

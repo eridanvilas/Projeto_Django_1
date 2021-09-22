@@ -80,7 +80,8 @@ DATABASES = {
    'default': {
       'ENGINE': 'django.db.backends.postgresql',
       'NAME': 'cesta_basica',
-      'USER': 'postgres',
+      'USER': 'docker',
+      'PASSWORD': 'docker',
       'HOST': 'db',
       'PORT': '5432',
    }

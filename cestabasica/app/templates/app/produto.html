@@ -7,8 +7,9 @@
         <div class="col-sm-6">
             <form action="." method="GET" class="form-inline">
                 <input type="text" id="search" name="search" class="form-control" placeholder="Buscar produto" />
-                <input type="submit" class="btn btn-primary" value="Buscar" style="margin-left:10px"/>
-            </form>
+                <input type="submit" class="btn btn-primary" value="Buscar" style="margin-left:10px"/>    
+                <input  type="button" onclick="location.href='{% url 'cadastrar_produto'%}'" class="btn btn-success" style="margin-left: 10px;" value="Novo"/>
+            </form>    
         </div>
     </div>
     <div>
